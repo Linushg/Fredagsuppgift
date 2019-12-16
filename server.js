@@ -29,7 +29,9 @@ app.get('/Fredag/:id', (req,res) => {
     })
 })
 
-app.listen(4242, () => {
+var port = process.env.PORT || 4242;
+
+app.listen(port, () => {
 
     client.connect(err => {
         collection = client.db("Fredag").collection("Notes");
