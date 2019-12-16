@@ -13,6 +13,10 @@ app.use(BodyParser.urlencoded({extended: true}));
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 console.log("Its alive");
 
+app.get('/', (req,res) => {
+    res.send('I am also alive')
+})
+
 app.get('/Fredag', (req,res) => {
     collection.find({}).toArray((err,result) => {
         res.send(result);
